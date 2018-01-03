@@ -1,18 +1,38 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content class="list-avatar-page">
+  <ion-list>
+    <ion-item-sliding #item>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/images/semok.png">
+        </ion-avatar>
+        <h2>rheza@telkommail.id</h2>
+        <p>Rheza SMX</p>
+        <p>This town ain't big enough for the two of us!</p>
+        <ion-note item-end><ion-icon name="ios-attach"></ion-icon>&nbsp;&nbsp;3:43 pm<br><br><ion-icon name="ios-star-outline" style="font-size: 25px;"></ion-icon></ion-note>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="unread(item)" color="dark">
+          <ion-icon name="ios-open-outline"></ion-icon>
+          open
+        </button>
+        <button ion-button (click)="unread(item)" color="danger">
+          <ion-icon name="ios-trash-outline"></ion-icon>
+          delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  </ion-list>
+
 </ion-content>
